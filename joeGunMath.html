@@ -1,0 +1,42 @@
+<style>
+    .buttStuff {
+        margin: auto;
+        text-align: center;
+        padding: 2%;
+        font-family: Arial, Helvetica, sans-serif;
+        background-color: darkgreen;
+        width: 50%;
+        color: floralwhite;
+    }
+</style>
+<body style="background-color: darkolivegreen;">
+    <main class="buttStuff">
+    <img src="https://static.wikia.nocookie.net/kingofthehill/images/c/ce/139149.jpg/revision/latest/scale-to-width-down/400?cb=20120203162758">
+    <h1>gun.math</h1>
+    <form target="_self" name="form" onsubmit="return false;">
+        <label for="distance">distance in yards:</label><br>
+        <input type="text" id="distance" name="distance"><br>
+        <br>
+        <label for="inches">inches to adjust:</label><br>
+        <input type="text" id="inches" name="inches"><br>
+        <br>
+        <label for="moa">moa per click:</label><br>
+        <input type="text" id="moa" name="moa" value=".25"><br>
+        <br>
+        <input type="submit" value="submit" onclick="gunMath()">
+    </form>
+    <p id="retard">adjust x clicks</p>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script type="text/javascript">
+        function gunMath() {
+            var distance = document.getElementById("distance").value;
+            var inches = document.getElementById("inches").value;
+            var moa = document.getElementById("moa").value;
+            let inchesPerMoa = distance / 100;
+            let moaAdjustment = inches / inchesPerMoa;
+            let clicks = moa * moaAdjustment;
+            document.getElementById("retard").innerHTML = "adjust " + clicks + " clicks (" + moaAdjustment + " moa)";
+        }
+    </script>
+    </main>
+</body>
