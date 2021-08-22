@@ -34,7 +34,8 @@
             var moa = document.getElementById("moa").value;
             let inchesPerMoa = distance / 100;
             let moaAdjustment = inches / inchesPerMoa;
-            let clicks = moa * moaAdjustment;
+            let clicks1 = moa * moaAdjustment;
+            let clicks = Math.round(clicks1);
             document.getElementById("retard").innerHTML = "adjust " + clicks + " clicks (" + moaAdjustment + " moa)";
         }
     </script>
